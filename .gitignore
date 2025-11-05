@@ -1,0 +1,31 @@
+# Python Environment and Cache
+__pycache__/                # Python compiled cache directories
+*.py[cod]                   # Python compiled files (pyc, pyo, cod)
+.env                        # Environment variables (adjust if tracking a base .env)
+src/.env                    # Explicitly ignore the specific .env file in src/
+
+# Virtual Environments (adjust names if used)
+venv/
+.venv/
+env/
+*.venv/
+
+# IDE/Editor Specific Files
+.idea/                      # PyCharm project files
+.vscode/                     # VS Code workspace files
+*.suo                       # Visual Studio user options
+*.ntvs*                      # Visual Studio Tools for Python
+*.njsproj*                  # .NET project files (if applicable)
+*.sln                        # Visual Studio solution files (if applicable)
+*.sw?                        # Vim/Emacs swap files
+
+# Data and Generated Files (adjust based on project needs)
+resources/*.pdf             # PDFs (if large or non-essential; remove if you need to track them)
+resources/*.json            # JSON files (if generated; remove if tracking raw/processed data)
+src/faiss_alarm_index/*.faiss # FAISS index files (often regenerated; remove if essential to track)
+src/faiss_alarm_index/*.pkl  # Pickle files (model/data artifacts; remove if needed)
+
+# Logs and Temporary Files
+*.log                       # Log files
+*.tmp                       # Temporary files
+*.bak                       # Backup files
