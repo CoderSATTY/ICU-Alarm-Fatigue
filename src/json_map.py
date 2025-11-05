@@ -3,6 +3,9 @@ from typing import List, Optional, Dict, Any
 import json
 from dotenv import load_dotenv
 from pathlib import Path
+from langchain.tools import tool
+from langchain.agents import create_agent
+from langchain_groq import ChatGroq
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR.parent / "resources"
@@ -31,6 +34,7 @@ def open_json_file(file_path: Path) -> List[Dict[str, Any]]:
         data = json.load(f)
     return data
 
+@tool("map_alarms", return_dict=OutputSchema, args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def load_knowledge_base() -> List[Dict[str, Any]]:
     data_1 = open_json_file(JSON_FILE_1)
     data_2 = open_json_file(JSON_FILE_2)
