@@ -1,11 +1,13 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 import json
+import os
 from dotenv import load_dotenv
 from pathlib import Path
 from langchain.tools import tool
 from langchain.agents import create_agent
 from langchain_groq import ChatGroq
+from langchain.agents.structured_output import ToolStrategy
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR.parent / "resources"
@@ -34,7 +36,6 @@ def open_json_file(file_path: Path) -> List[Dict[str, Any]]:
         data = json.load(f)
     return data
 
-@tool("map_alarms", return_dict=OutputSchema, args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def load_knowledge_base() -> List[Dict[str, Any]]:
     data_1 = open_json_file(JSON_FILE_1)
     data_2 = open_json_file(JSON_FILE_2)
@@ -46,6 +47,7 @@ def load_knowledge_base() -> List[Dict[str, Any]]:
 
     return combined_alarms
 
+# @tool("map_alarms", args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> List[Dict[str, Any]]:
     all_alarms = load_knowledge_base()
     matching_alarms = []
@@ -67,7 +69,15 @@ def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> Lis
                 matching_alarms.append(alarm)
     
     return matching_alarms
-
+# model  = ChatGroq(
+#     model="llama-3.3-70b-versatile",
+#     temperature=0,
+#     max_tokens=None,
+#     reasoning_format="parsed",
+#     timeout=None,
+#     max_retries=2,
+#     api_key=os.getenv("GROQ_API_KEY")
+# )
 if __name__ == "__main__":
     alarm_name_input = input("Enter alarm name: ")
     urgency_input = input("Enter urgency (optional, press Enter to skip): ").strip()
@@ -78,3 +88,9 @@ if __name__ == "__main__":
     
     print(f"\nFound {len(results)} matching alarm(s):\n")
     print(json.dumps(results, indent=2))
+    # agent = create_agent(model, tools=[search_alarms_by_name], response_format= ToolStrategy(OutputSchema)
+    #                      )
+    # result = agent.invoke({
+    #     "messages": [{"role": "user", "content": "Alarm name: 'APNEA' and urgency: 'Low'. Provide the canonical alarm name, analysis message, remedy message, and comments."}]
+    # })
+    # print("Response:\n" ,result["structured_response"])
