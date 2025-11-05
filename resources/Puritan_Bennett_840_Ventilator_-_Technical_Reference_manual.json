@@ -1,0 +1,599 @@
+{
+  "run_id": "cef8f73a-40ce-4cad-9804-b4ad248485c6",
+  "extraction_agent_id": "f5b84b64-a15a-45df-a791-264b61899c0e",
+  "data": {
+    "alarms": [
+      {
+        "baseMessage": "AC POWER LOSS",
+        "urgency": "Low",
+        "analysisMessage": "Operating on battery.",
+        "remedyMessage": "Prepare for power loss.",
+        "comments": "Power switch on, AC power not available,"
+      },
+      {
+        "baseMessage": "AC POWER LOSS",
+        "urgency": "Medium",
+        "analysisMessage": "Operational time < 2 minutes.",
+        "remedyMessage": "Prepare for power loss.",
+        "comments": "Ventilator operating on BPS. BPS operating indicator turns on. Resets when AC power is restored."
+      },
+      {
+        "baseMessage": "APNEA",
+        "urgency": "Medium",
+        "analysisMessage": "Apnea ventilation. Breath interval > apnea interval.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "The set apnea interval has elapsed without the ventilator, patient, or operator triggering a breath. Resets when patient initiates 2 consecutive breaths. Possible dependent alarm:  ↓VE TOT"
+      },
+      {
+        "baseMessage": "APNEA",
+        "urgency": "High",
+        "analysisMessage": "Extended apnea duration or multiple apnea events.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "The set apnea interval has elapsed without the ventilator, patient, or operator triggering a breath. Resets when patient initiates 2 consecutive breaths. Possible dependent alarm:  ↓VE TOT"
+      },
+      {
+        "baseMessage": "CIRCUIT DISCONNECT",
+        "urgency": "High",
+        "analysisMessage": "No ventilation.",
+        "remedyMessage": "Check patient/ventilator status.",
+        "comments": "Ventilator has recovered from unintended power loss lasting more than 5 minutes, detects circuit disconnect, switches to idle mode; upper screen displays elapsed time without ventilator support. Resets when ventilator senses reconnection."
+      },
+      {
+        "baseMessage": "CIRCUIT DISCONNECT",
+        "urgency": "High",
+        "analysisMessage": "No ventilation.",
+        "remedyMessage": "Check patient. Reconnect circuit.",
+        "comments": "Ventilator detects circuit disconnect and switches to idle mode; upper screen displays elapsed time without ventilator support. Resets when ventilator senses reconnection."
+      },
+      {
+        "baseMessage": "COMPLIANCE LIMITED V",
+        "urgency": "Low",
+        "analysisMessage": "Compliance compensation limit reached.",
+        "remedyMessage": "Inspired volume may be < set. Check patient and circuit type.",
+        "comments": "Compliance volume required to compensate delivery of a volume controlled breath exceeds the maximum allowed for 3 of the last 4 breaths."
+      },
+      {
+        "baseMessage": "COMPRESSOR INOPERATIVE",
+        "urgency": "Low",
+        "analysisMessage": "No compressor air. No operation during low AC power.",
+        "remedyMessage": "No remedy message displayed.",
+        "comments": "Compressor ready indicator turns off. Resets when full AC power is restored."
+      },
+      {
+        "baseMessage": "COMPRESSOR INOPERATIVE",
+        "urgency": "Low",
+        "analysisMessage": "No compressor air. No operation during AC power loss.",
+        "remedyMessage": "",
+        "comments": "Ventilator turns off compressor. Resets when full AC power is restored."
+      },
+      {
+        "baseMessage": "COMPRESSOR INOPERATIVE",
+        "urgency": "Low",
+        "analysisMessage": "No compressor air.",
+        "remedyMessage": "",
+        "comments": "Compressor ready indicator turns off."
+      },
+      {
+        "baseMessage": "COMPRESSOR INOPERATIVE",
+        "urgency": "Low",
+        "analysisMessage": "N/A",
+        "remedyMessage": "Replace compressor.",
+        "comments": "Alarm occurs when there are no LOW AC POWER and no AC POWER LOSS alarms for < 15 seconds AND time since power-on > 10 seconds."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Low",
+        "analysisMessage": "Breath delivery not affected.",
+        "remedyMessage": "Service required.",
+        "comments": "Background checks have detected a problem. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Low",
+        "analysisMessage": "Ventilation continues as set.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": ""
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Low",
+        "analysisMessage": "Breath delivery not affected. Compromised spirometry.",
+        "remedyMessage": "Service required.",
+        "comments": "POST has detected a problem. Resets when ventilator passes POST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Low",
+        "analysisMessage": "Breath delivery not affected. Possible compromise of other functions.",
+        "remedyMessage": "Service required.",
+        "comments": ""
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Ventilation continues as set.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Accuracy of exhalation flow sensor temperature may be affected. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Ventilation continues as set.",
+        "remedyMessage": "",
+        "comments": "Background checks have detected a problem. Accuracy of oxygen flow sensor temperature may be affected, ventilator using nominal value. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Breath delivery not affected. Compromised spirometry.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Ventilation continues as set. Only O2 available.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Ventilator delivers 100% O2. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Breath delivery not affected. Compromised spirometry.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Accuracy of exhalation flow sensor temperature may be affected. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "Medium",
+        "analysisMessage": "Ventilation continues as set. Only air available.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Ventilator delivers 21% O2. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Breath delivery not affected.",
+        "remedyMessage": "",
+        "comments": "Background checks have detected a problem. Loss of GUI indicator lights. Setting changes disabled. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Unable to determine status of breath delivery.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Loss of GUI indicator lights. Resets when communication between GUI and BDU is re-established."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Loss of GUI indicator lights. Alarms, setting changes, and monitored data disabled. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Setting changes, monitored data, and alarms disabled. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set. Delivery/spiro may be compromised.",
+        "remedyMessage": "Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Setting changes not allowed. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Breath delivery not affected. Compromised spiro. Trig = pres.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem and flow triggering was selected. Accuracy of exhalation flow sensor temperature may be affected. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set, except O2% = 100.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Ventilator delivers 100% O2 instead of set O2%. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set. Compromised air delivery.",
+        "remedyMessage": "Replace & service ventilator. Check patient.",
+        "comments": "Background checks have detected a problem. Accuracy of air flow sensor temperature may be affected, ventilator using nominal value. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set. Compromised O2 delivery.",
+        "remedyMessage": "Replace & service ventilator. Check patient.",
+        "comments": "Background checks have detected a problem. Accuracy of oxygen flow sensor temperature may be affected, ventilator using nominal value. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Power loss & recovery occurred with a pre-existing Device Alert.",
+        "remedyMessage": "Check Alarm log. EST required.",
+        "comments": "Background checks have detected a problem. Loss of GUI indicator lights. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set, except O2% = 21.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Ventilator delivers 21% O2 % instead of set O2. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "No ventilation. Safety Valve Open.",
+        "remedyMessage": "Provide alternate ventilation. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Safety valve open indicator lights. Upper screen displays elapsed time without ventilator support."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "No ventilation. Safety Valve Open.",
+        "remedyMessage": "Check patient. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Safety valve open indicator lights. Upper screen displays elapsed time without ventilator support."
+      },
+      {
+        "baseMessage": "DEVICE ALERT",
+        "urgency": "High",
+        "analysisMessage": "No ventilation. Safety Valve Open.",
+        "remedyMessage": "Provide alternate ventilation. Replace & service ventilator.",
+        "comments": "Background checks have detected a problem. Ventilator inoperative and safety valve open indicators light. Message may not be visible. If possible, upper screen displays elapsed time without ventilator support. Resets when ventilator passes EST."
+      },
+      {
+        "baseMessage": "↑PPEAK",
+        "urgency": "Low",
+        "analysisMessage": "Last breath ≥ set limit.",
+        "remedyMessage": "Check patient.",
+        "comments": "Measured airway pressure ≥ set limit."
+      },
+      {
+        "baseMessage": "↑PPEAK",
+        "urgency": "Medium",
+        "analysisMessage": "Last 3 breaths ≥ set limit.",
+        "remedyMessage": "Check circuit & ET tube.",
+        "comments": "Ventilator truncates current breath unless already in exhalation. Possible dependent alarms: ↓VTE MAND,  .        , . f ↓VE TOT  ↑ TOT"
+      },
+      {
+        "baseMessage": "↑PPEAK",
+        "urgency": "High",
+        "analysisMessage": "Last 4 or more breaths ≥ set limit.",
+        "remedyMessage": "Check circuit & ET tube.",
+        "comments": "Ventilator truncates current breath unless already in exhalation. Possible dependent alarms: ↓VTE MAND,  .        , . f ↓VE TOT  ↑ TOT"
+      },
+      {
+        "baseMessage": "3PPEAK",
+        "urgency": "Low",
+        "analysisMessage": "Last 2 breaths, pressure ≤ set limit.",
+        "remedyMessage": "Check for leaks.",
+        "comments": "Peak inspiratory pressure ≤ set limit. (Available only when Vent Type is NIV or during INVASIVE ventilation when Mandatory Type is VC+.)"
+      },
+      {
+        "baseMessage": "3PPEAK",
+        "urgency": "Medium",
+        "analysisMessage": "Last 4 breaths, pressure ≤ set limit.",
+        "remedyMessage": "Check for leaks.",
+        "comments": "Peak inspiratory pressure ≤ set limit. (Available only when Vent Type is NIV or during INVASIVE ventilation when Mandatory Type is VC+.)"
+      },
+      {
+        "baseMessage": "3PPEAK",
+        "urgency": "High",
+        "analysisMessage": "Last 10 or more breaths, pressure ≤ set limit.",
+        "remedyMessage": "Check for leaks.",
+        "comments": "Peak inspiratory pressure ≤ set limit. (Available only when Vent Type is NIV or during INVASIVE ventilation when Mandatory Type is VC+.)"
+      },
+      {
+        "baseMessage": "↑O2%",
+        "urgency": "Medium",
+        "analysisMessage": "Measured % > set for 30 s but < 2 min.",
+        "remedyMessage": "Check patient, gas sources, O2 analyzer & ventilator.",
+        "comments": "The O2% measured during any phase of a breath cycle is 7% (12% during the first hour of operation) or more above the O2% setting for at least 30 seconds. (These percentages increase by 5% for 4 minutes following a decrease in the O2% setting.) Alarm updated at 1-second intervals."
+      },
+      {
+        "baseMessage": "↑O2%",
+        "urgency": "High",
+        "analysisMessage": "Measured % > set for ≥ 2 min.",
+        "remedyMessage": "Check patient, gas sources, O2 analyzer & ventilator.",
+        "comments": "The O2% measured during any phase of a breath cycle is 7% (12% during the first hour of operation) or more above the O2% setting for at least 30 seconds. (These percentages increase by 5% for 4 minutes following a decrease in the O2% setting.) Alarm updated at 1-second intervals."
+      },
+      {
+        "baseMessage": "↑ VTE",
+        "urgency": "Low",
+        "analysisMessage": "Last 2 breaths ≥ set limit.",
+        "remedyMessage": "Check settings, changes in patient's R & C.",
+        "comments": "Exhaled tidal volume ≥ set limit."
+      },
+      {
+        "baseMessage": "↑ VTE",
+        "urgency": "Medium",
+        "analysisMessage": "Last 4 breaths ≥ set limit.",
+        "remedyMessage": "Check settings, changes in patient's R & C.",
+        "comments": "Alarm updated whenever exhaled tidal volume is recalculated."
+      },
+      {
+        "baseMessage": "↑ VTE",
+        "urgency": "High",
+        "analysisMessage": "Last 10 or more breaths ≥ set limit.",
+        "remedyMessage": "Check settings, changes in patient's R & C.",
+        "comments": "Possible dependent alarm: ↑ .     . alarm: VE TOT"
+      },
+      {
+        "baseMessage": "↑ VE TOT",
+        "urgency": "Low",
+        "analysisMessage": "VE TOT ≥ set limit for ≤ 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Expiratory minute volume ≥ set limit."
+      },
+      {
+        "baseMessage": "↑ VE TOT",
+        "urgency": "Medium",
+        "analysisMessage": "VE TOT ≥ set limit for > 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Alarm updated whenever an exhaled minute volume is recalculated."
+      },
+      {
+        "baseMessage": "↑ VE TOT",
+        "urgency": "High",
+        "analysisMessage": "VE TOT ≥ set limit for > 120s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Possible dependent alarm: ↑ VTE ."
+      },
+      {
+        "baseMessage": "↑ fTOT",
+        "urgency": "Low",
+        "analysisMessage": "fTOT ≥ set limit for ≤ 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Total respiratory rate ≥ set limit. Alarm updated at the beginning of each inspiration. Reset when measured respiratory rate falls below the alarm limit. Possible dependent alarms: ↓VTE MAND, ↓VTE SPONT, .     . VE TOT"
+      },
+      {
+        "baseMessage": "↑ fTOT",
+        "urgency": "Medium",
+        "analysisMessage": "fTOT ≥ set limit for > 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Total respiratory rate ≥ set limit. Alarm updated at the beginning of each inspiration. Reset when measured respiratory rate falls below the alarm limit. Possible dependent alarms: ↓VTE MAND, ↓VTE SPONT, .     . VE TOT"
+      },
+      {
+        "baseMessage": "↑ fTOT",
+        "urgency": "High",
+        "analysisMessage": "fTOT ≥ set limit for > 120s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Total respiratory rate ≥ set limit. Alarm updated at the beginning of each inspiration. Reset when measured respiratory rate falls below the alarm limit. Possible dependent alarms: ↓VTE MAND, ↓VTE SPONT, .     . VE TOT"
+      },
+      {
+        "baseMessage": "↑PVENT",
+        "urgency": "Low",
+        "analysisMessage": "1 breath ≥ limit.",
+        "remedyMessage": "Check patient.",
+        "comments": "Inspiratory pressure > 100 cmH2O and mandatory type = VC or spontaneous type = TC or PA."
+      },
+      {
+        "baseMessage": "↑PVENT",
+        "urgency": "Medium",
+        "analysisMessage": "2 breaths ≥ limit.",
+        "remedyMessage": "Check circuit & ET tube.",
+        "comments": "Inspiratory pressure > 100 cmH2O and mandatory type = VC or spontaneous type = TC or PA."
+      },
+      {
+        "baseMessage": "↑PVENT",
+        "urgency": "High",
+        "analysisMessage": "3 or more breaths ≥ limit.",
+        "remedyMessage": "Check circuit & ET tube.",
+        "comments": "Inspiratory pressure > 100 cmH2O and mandatory type = VC or spontaneous type = TC or PA. Ventilator truncates current breath unless already in exhalation. Possible dependent alarms: ↓V         , .    TE MANDf V        , . ↓ E TOT  ↑ TOT"
+      },
+      {
+        "baseMessage": "INOPERATIVE BATTERY",
+        "urgency": "Low",
+        "analysisMessage": "Inadequate charge or non-functional battery system.",
+        "remedyMessage": "Service/replace battery.",
+        "comments": "BPS installed but not functioning. Resets when BPS is functional."
+      },
+      {
+        "baseMessage": "INSPIRATION TOO LONG",
+        "urgency": "Low",
+        "analysisMessage": "Last 2 spont breaths = IBW based TI limit.",
+        "remedyMessage": "Check patient.",
+        "comments": "Inspiratory time for spontaneous breath ≥ IBW-based limit."
+      },
+      {
+        "baseMessage": "INSPIRATION TOO LONG",
+        "urgency": "Medium",
+        "analysisMessage": "Last 4 spont breaths = IBW based TI limit.",
+        "remedyMessage": "Check for leaks.",
+        "comments": "Ventilator transitions to exhalation. Resets when TI falls below IBW-based limit."
+      },
+      {
+        "baseMessage": "INSPIRATION TOO LONG",
+        "urgency": "High",
+        "analysisMessage": "Last 10 or more spont breaths = IBW based TI limit.",
+        "remedyMessage": "Check patient.",
+        "comments": "Active only when Vent Type is INVASIVE."
+      },
+      {
+        "baseMessage": "LOSS OF POWER",
+        "urgency": "High",
+        "analysisMessage": "",
+        "remedyMessage": "",
+        "comments": "The ventilator power switch is on and there is insufficient power from AC and the BPS (if installed). There may not be a visual indicator for this alarm, but an independent audio alarm on the BDU sounds for at least 120 seconds. Alarm annunciation can be reset by turning power switch to off position."
+      },
+      {
+        "baseMessage": "LOW AC POWER",
+        "urgency": "Low",
+        "analysisMessage": "Ventilator currently not affected.",
+        "remedyMessage": "Power interrupt possible.",
+        "comments": "Mains (AC) power has dropped below 80% of nominal for 1 second. Ventilator continues operation as close to settings as possible. Resets when there is no low AC power signal for 1 second."
+      },
+      {
+        "baseMessage": "LOW BATTERY",
+        "urgency": "Low",
+        "analysisMessage": "Operational time < 2 minutes.",
+        "remedyMessage": "Replace or allow recharge.",
+        "comments": "Resets when BPS has more than approximately 2 minutes of operational time remaining."
+      },
+      {
+        "baseMessage": "↓ O2%",
+        "urgency": "High",
+        "analysisMessage": "Measured % < set O2 2 %.",
+        "remedyMessage": "Check patient, gas sources, O2 analyzer & ventilator.",
+        "comments": "The O2% measured during any phase of a breath cycle is 7% (12% during the first hour of operation) or more below the O2% setting for at least 30 seconds, or below 18%. (These percentages increase by 5% for 4 minutes following an increase in the O2% setting.) Alarm updated at 1-second intervals."
+      },
+      {
+        "baseMessage": "↓VTE MAND",
+        "urgency": "Low",
+        "analysisMessage": "Last 2 mand. breaths ≤ set limit.",
+        "remedyMessage": "Check for leaks, changes in patient's R & C.",
+        "comments": "Exhaled mandatory tidal volume ≤ set limit. Alarm updated whenever exhaled mandatory tidal volume is recalculated."
+      },
+      {
+        "baseMessage": "↓VTE MAND",
+        "urgency": "Medium",
+        "analysisMessage": "Last 4 mand. breaths ≤ set limit.",
+        "remedyMessage": "Check for leaks, changes in patient's R & C.",
+        "comments": "Exhaled mandatory tidal volume ≤ set limit. Alarm updated whenever exhaled mandatory tidal volume is recalculated."
+      },
+      {
+        "baseMessage": "↓VTE MAND",
+        "urgency": "High",
+        "analysisMessage": "Last 10 or more mand. breaths ≤ set limit.",
+        "remedyMessage": "Check for leaks, changes in patient's R & C.",
+        "comments": "Possible dependent alarms: ↑ .     , . VE TOT    ↑ fTOT"
+      },
+      {
+        "baseMessage": "↓VTE SPONT",
+        "urgency": "Low",
+        "analysisMessage": "Last 2 spont breaths ≤ set limit.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Exhaled spontaneous tidal volume ≤ set limit."
+      },
+      {
+        "baseMessage": "↓VTE SPONT",
+        "urgency": "Medium",
+        "analysisMessage": "Last 4 spont breaths ≤ set limit.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Alarm updated whenever exhaled spontaneous tidal volume is recalculated."
+      },
+      {
+        "baseMessage": "↓VTE SPONT",
+        "urgency": "High",
+        "analysisMessage": "Last 10 or more spont breaths ≤ set limit.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Possible dependent alarms: .        , . f ↓VE TOT   ↑ TOT"
+      },
+      {
+        "baseMessage": "↓VE TOT",
+        "urgency": "Low",
+        "analysisMessage": "VE TOT ≤ set limit for ≤ 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Total minute volume ≤ set limit. Alarm updated whenever exhaled minute volume is recalculated."
+      },
+      {
+        "baseMessage": "↓VE TOT",
+        "urgency": "Medium",
+        "analysisMessage": "VE TOT ≤ set limit for > 30s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Alarm updated whenever exhaled minute volume is recalculated."
+      },
+      {
+        "baseMessage": "↓VE TOT",
+        "urgency": "High",
+        "analysisMessage": "VE TOT ≤ set limit for > 120s.",
+        "remedyMessage": "Check patient & settings.",
+        "comments": "Possible dependent alarms: ↓V         , TE MAND ↓VTE SPONT, ↑fTOT ."
+      },
+      {
+        "baseMessage": "NO AIR SUPPLY",
+        "urgency": "Low",
+        "analysisMessage": "Ventilation continues as set. Only O2 available.",
+        "remedyMessage": "Check air source.",
+        "comments": "Operator-set O2% equals 100%. Resets if air supply connected."
+      },
+      {
+        "baseMessage": "NO AIR SUPPLY",
+        "urgency": "Low",
+        "analysisMessage": "Compressor inoperative. Ventilation continues as set. Only O2 available.",
+        "remedyMessage": "Check air source.",
+        "comments": ""
+      },
+      {
+        "baseMessage": "NO AIR SUPPLY",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set except O2% = 100.",
+        "remedyMessage": "Check patient & air source.",
+        "comments": "Operator-set O2% < 100%. Ventilator delivers 100% O2 instead of set O2%."
+      },
+      {
+        "baseMessage": "NO AIR SUPPLY",
+        "urgency": "High",
+        "analysisMessage": "Compressor inoperative. Ventilation continues as set, except O2% = 100.",
+        "remedyMessage": "Check patient & air source.",
+        "comments": "Resets if air supply connected."
+      },
+      {
+        "baseMessage": "NO AIR SUPPLY and NO O2 SUPPLY",
+        "urgency": "High",
+        "analysisMessage": "No ventilation. Safety Valve Open.",
+        "remedyMessage": "Provide alternate ventilation. Check both gas sources.",
+        "comments": "Safety valve open indicator lights. Upper screen displays elapsed time without ventilator support. Safety valve closes and indicator turns off if either gas supply is connected. Individual gas supply alarm resets when corresponding supply is connected."
+      },
+      {
+        "baseMessage": "NO O2 SUPPLY",
+        "urgency": "Low",
+        "analysisMessage": "Ventilation continues as set. Only air available.",
+        "remedyMessage": "Check O2 source.",
+        "comments": "Operator-set O2% equals 21%. Resets if O2 supply connected."
+      },
+      {
+        "baseMessage": "NO O2 SUPPLY",
+        "urgency": "High",
+        "analysisMessage": "Ventilation continues as set, except O2% = 21.",
+        "remedyMessage": "Check patient & O2 source.",
+        "comments": "Operator-set O2% > 21%. Ventilator delivers 21% O2 instead of set O2%. Resets if oxygen supply connected."
+      },
+      {
+        "baseMessage": "O2 SENSOR",
+        "urgency": "Low",
+        "analysisMessage": "Ventilation unaffected.",
+        "remedyMessage": "O2 sensor out of calibration/failure. Press 100% O2 CAL, replace or disable.",
+        "comments": "Background checks have detected a problem. Resets when operator successfully calibrates oxygen sensor, or disables oxygen sensor."
+      },
+      {
+        "baseMessage": "PROCEDURE ERROR",
+        "urgency": "High",
+        "analysisMessage": "Patient connected before setup complete.",
+        "remedyMessage": "Provide alternate ventilation. Complete setup process.",
+        "comments": "Ventilator begins safety ventilation. Resets when ventilator startup procedure is complete."
+      },
+      {
+        "baseMessage": "SCREEN BLOCK",
+        "urgency": "Medium",
+        "analysisMessage": "Possible blocked beam or touch screen fault.",
+        "remedyMessage": "Remove obstruction or service ventilator.",
+        "comments": "Background checks have detected a problem. Resets when ventilator passes EST or when blockage is removed."
+      },
+      {
+        "baseMessage": "SEVERE OCCLUSION",
+        "urgency": "High",
+        "analysisMessage": "Little/no ventilation.",
+        "remedyMessage": "Check patient. Provide alternate ventilation. Clear occlusions; drain circuit.",
+        "comments": "Ventilator enters occlusion status cycling (OSC) and upper screen displays elapsed time without ventilator support."
+      }
+    ]
+  },
+  "extraction_metadata": {
+    "field_metadata": {
+      
+    },
+    "usage": {
+      "num_pages_extracted": 18,
+      "num_document_tokens": 6027,
+      "num_output_tokens": 5274
+    }
+  }
+}

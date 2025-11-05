@@ -1,0 +1,153 @@
+{
+  "run_id": "d6bb2d38-d70d-4769-89b8-bb1794e82bd0",
+  "extraction_agent_id": "f5b84b64-a15a-45df-a791-264b61899c0e",
+  "data": {
+    "alarms": [
+      {
+        "alarmMessage": "AC POWER LOSS",
+        "alarmMeaning": "The power switch is ON, AC power is not available, and the ventilator is being powered by the backup power source (BPS).",
+        "recommendedAction": "Prepare for power loss. Obtain alternate ventilation. Check integrity of AC power source. Contact service if necessary."
+      },
+      {
+        "alarmMessage": "APNEA",
+        "alarmMeaning": "The set apnea interval has elapsed without the ventilator, patient or operator triggering a breath.",
+        "recommendedAction": "Check patient and settings."
+      },
+      {
+        "alarmMessage": "CIRCUIT DISCONNECT",
+        "alarmMeaning": "There is a disconnection in the patient circuit before the patient wye or patient disconnect is detected following power restoration from an unintentional power loss with the power switch ON.",
+        "recommendedAction": "Check patient. Reconnect patient circuit. Press ALARM RESET."
+      },
+      {
+        "alarmMessage": "COMPRESSOR INOPERATIVE",
+        "alarmMeaning": "Compressor cannot maintain sufficient supply pressure.",
+        "recommendedAction": "Check patient. Obtain alternate ventilation. Remove ventilator from use and contact service."
+      },
+      {
+        "alarmMessage": "DEVICE ALERT",
+        "alarmMeaning": "A background test or power on self-test (POST) has detected a problem.",
+        "recommendedAction": "Check patient. If prompted to do so, obtain alternate ventilation or contact service."
+      },
+      {
+        "alarmMessage": "O₂ SENSOR",
+        "alarmMeaning": "Background checks have detected a problem with the O₂ sensor.",
+        "recommendedAction": "O₂ sensor is out of calibration or has failed. Press 100% O₂ CAL; replace or disable the sensor."
+      },
+      {
+        "alarmMessage": "PCIRC (High circuit pressure)",
+        "alarmMeaning": "The measured airway pressure is equal to or greater than the set limit. Reduced tidal volume likely.",
+        "recommendedAction": "Check patient, patient circuit and endotracheal tube."
+      },
+      {
+        "alarmMessage": "O₂% (High delivered O₂%)",
+        "alarmMeaning": "The O₂% measured during any phase of a breath cycle is 7% (12% during the first hour of operation) or more above the O₂% setting for at least 30 seconds. (These percentages increase by 5% for four minutes following a decrease in the O₂% setting.)",
+        "recommendedAction": "Check patient, air and oxygen supplies, oxygen analyzer and ventilator."
+      },
+      {
+        "alarmMessage": "VTE (High exhaled tidal volume)",
+        "alarmMeaning": "The patient's exhaled tidal volume for any breath is equal to or greater than the set limit.",
+        "recommendedAction": "Check patient and settings. Consider whether the patient’s compliance or resistance has changed."
+      },
+      {
+        "alarmMessage": "VE TOT (High exhaled total minute volume)",
+        "alarmMeaning": "The patient's expiratory minute volume is equal to or greater than the set limit.",
+        "recommendedAction": "Check patient and settings."
+      },
+      {
+        "alarmMessage": "Vti SPONT Alarm",
+        "alarmMeaning": "The delivered volume of any tube compensated (TC) breath is equal to or greater than the inspired tidal volume limit. Ventilator transitions to exhalation.",
+        "recommendedAction": "Check patient. Check for leaks, tube type/I.D. setting."
+      },
+      {
+        "alarmMessage": "fTOT (High respiratory rate)",
+        "alarmMeaning": "The breath rate from all breaths is greater than or equal to the set limit.",
+        "recommendedAction": "Check patient and settings."
+      },
+      {
+        "alarmMessage": "PVENT (High internal ventilator pressure)",
+        "alarmMeaning": "The inspiratory pressure transducer has measured a pressure of at least 100 cm H₂O. Active only during volume-controlled breaths. Ventilator transitions to exhalation. Reduced tidal volume likely.",
+        "recommendedAction": "Check patient. Obtain alternate ventilation. Remove ventilator from use and contact service."
+      },
+      {
+        "alarmMessage": "PCOMP",
+        "alarmMeaning": "The target pressure of a tube compensated (TC) breath equals the PCIRC limit. This limit is equal to the setting of P PEAK. Inspiration pressure is limited during this alarm.",
+        "recommendedAction": "Check patient. Check for leaks, tube type/I.D. setting."
+      },
+      {
+        "alarmMessage": "INOPERATIVE BATTERY",
+        "alarmMeaning": "BPS is installed but not functioning.",
+        "recommendedAction": "Contact service."
+      },
+      {
+        "alarmMessage": "INSPIRATION TOO LONG",
+        "alarmMeaning": "IBW-based inspiratory time for a spontaneous breath exceeds ventilator-set limit.",
+        "recommendedAction": "Check patient. Check for leaks."
+      },
+      {
+        "alarmMessage": "LOSS OF POWER",
+        "alarmMeaning": "The ventilator power switch is on and there is insufficient power from the AC supply and the BPS. There may not be a visual indicator for this alarm, but an independent audio alarm sounds for at least 120 seconds.",
+        "recommendedAction": "Check integrity of AC power and BPS connections. Obtain alternate ventilation."
+      },
+      {
+        "alarmMessage": "LOW AC POWER",
+        "alarmMeaning": "Mains AC power has dropped below 80% of nominal voltage for at least one second. Warns that AC power has dropped significantly, and that a more severe power drop may be imminent. The ventilator turns off the compressor (if installed), and otherwise operates normally.",
+        "recommendedAction": "Check integrity of connection to AC power. Check AC power supply."
+      },
+      {
+        "alarmMessage": "LOW BATTERY",
+        "alarmMeaning": "The BPS has less than approximately two minutes of operational time remaining.",
+        "recommendedAction": "Replace BPS or allow it to recharge during normal ventilator operation."
+      },
+      {
+        "alarmMessage": "↓O₂% (Low delivered O₂%)",
+        "alarmMeaning": "The O₂% measured during any phase of a breath cycle is 7% (12% during the first hour of operation) or more below the O₂% setting for at least 30 seconds, or below 18%. (These percentages increase by 5% for four minutes following an increase in the O₂% setting.)",
+        "recommendedAction": "Check patient, air and oxygen supplies, oxygen analyzer and ventilator. Calibrate oxygen sensor (press 100% O₂/CAL 2 min key)."
+      },
+      {
+        "alarmMessage": "↓VTE MAND (Low exhaled mandatory tidal volume)",
+        "alarmMeaning": "The patient's exhaled mandatory tidal volume is less than or equal to the set limit.",
+        "recommendedAction": "Check patient. Check for leaks or changes in the patient’s resistance or compliance."
+      },
+      {
+        "alarmMessage": "↓VTE SPONT (Low exhaled spontaneous tidal volume)",
+        "alarmMeaning": "The patient's exhaled spontaneous tidal volume is less than or equal to the set limit.",
+        "recommendedAction": "Check patient and settings."
+      },
+      {
+        "alarmMessage": "↓VE TOT (Low exhaled total minute volume)",
+        "alarmMeaning": "The minute volume for all breaths is less than or equal to the set limit.",
+        "recommendedAction": "Check patient and settings."
+      },
+      {
+        "alarmMessage": "NO AIR SUPPLY",
+        "alarmMeaning": "Air supply pressure is less than the minimum required pressure for correct ventilator operation throughout its range of flows. Accurate O₂% delivery may be compromised. You cannot set or disable the NO AIR SUPPLY alarm.",
+        "recommendedAction": "Check patient and air source. Obtain alternate ventilation."
+      },
+      {
+        "alarmMessage": "NO O₂ supply",
+        "alarmMeaning": "Oxygen supply pressure is less than the minimum required pressure for correct ventilator operation throughout its range of flows. Accurate O₂% delivery may be compromised. You cannot set or disable the NO O₂ SUPPLY alarm.",
+        "recommendedAction": "Check patient and oxygen source. Obtain alternate ventilation."
+      },
+      {
+        "alarmMessage": "PROCEDURE ERROR",
+        "alarmMeaning": "Patient attached before ventilator startup is complete. Safety ventilation is active.",
+        "recommendedAction": "Provide alternate ventilation. Complete ventilator startup procedure."
+      },
+      {
+        "alarmMessage": "SEVERE OCCLUSION",
+        "alarmMeaning": "Patient circuit is severely occluded.",
+        "recommendedAction": "Check patient. Obtain alternate ventilation if necessary. Check patient circuit for crimps, blocked filter. If problem persists, remove ventilator from use and contact service."
+      }
+    ]
+  },
+  "extraction_metadata": {
+    "field_metadata": {
+      
+    },
+    "usage": {
+      "num_pages_extracted": 6,
+      "num_document_tokens": 1967,
+      "num_output_tokens": 1563
+    }
+  }
+}
