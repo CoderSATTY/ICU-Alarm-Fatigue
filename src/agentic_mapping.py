@@ -27,9 +27,9 @@ class InputSchema(BaseModel):
 
 class OutputSchema(BaseModel):
     alarm_name: str = Field(description="The canonical alarm name found in the database.")
-    analysis_message: str = Field(description="A brief analysis of what this alarm means, synthesizing all retrieved data.")
-    remedy_message: str = Field(description="The recommended steps to resolve the alarm.")
-    comments: str = Field(description="Any additional comments, technical notes, or context.")
+    analysis_message: str = Field(description="A combined brief analysis of what this alarm means taken from all analysis_message, synthesizing all retrieved data.")
+    remedy_message: str = Field(description="The combined recommended steps to resolve the alarm received from all remedy_message.")
+    comments: str = Field(description="Any additional comments, technical notes, or context explained step by step.")
 
 def open_json_file(file_path: Path) -> List[Dict[str, Any]]:
     with open(file_path, "r", encoding="utf-8") as f:
@@ -38,16 +38,54 @@ def open_json_file(file_path: Path) -> List[Dict[str, Any]]:
 
 def load_knowledge_base() -> List[Dict[str, Any]]:
     data_1 = open_json_file(JSON_FILE_1)
-    data_2 = open_json_file(JSON_FILE_2)
-
     alarms_1 = data_1["data"]["alarms"]
-    alarms_2 = data_2["data"]["alarms"]
 
+    data_2 = open_json_file(JSON_FILE_2)
+    alarms_2 = data_2["data"]["alarms"]
     combined_alarms = alarms_1 + alarms_2
 
     return combined_alarms
+def combine_data(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    # print(alarms)
+    no_urgency_alarms,  low_alarms, medium_alarms, high_alarms = [], [], [], []
 
-@tool("map_alarms", args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
+    for alarm in alarms:
+        urgency = (alarm.get("urgency") or "").lower().strip()  
+        
+        if urgency == "":
+            no_urgency_alarms.append(alarm)
+        elif urgency == "low":
+            low_alarms.append(alarm)
+        elif urgency == "medium":
+            medium_alarms.append(alarm)
+        elif urgency == "high":
+            high_alarms.append(alarm)
+        else:
+            no_urgency_alarms.append(alarm)  
+
+    # for category in [low_alarms, medium_alarms, high_alarms]:
+    #     if category:
+    #         combined_alarms.append({
+    #             "alarm_name": category[0].get("baseMessage") or category[0].get("alarmMessage"),
+    #             "urgency": category[0].get("urgency"),
+    #             "analysis_message": " ".join([a.get("analysisMessage", "") for a in category]),
+    #             "remedy_message": " ".join([a.get("remedyMessage", "") for a in category]),
+    #             "comments": " ".join([a.get("comments", "") for a in category])
+    #         })
+    combined_alarms = {
+        "low_urgency": low_alarms,
+        "medium_urgency": medium_alarms,
+        "high_urgency": high_alarms
+    }
+
+    if no_urgency_alarms:
+        combined_alarms["no_urgency"] = no_urgency_alarms
+
+    return combined_alarms
+
+
+
+# @tool("map_alarms", args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> List[Dict[str, Any]]:
     all_alarms = load_knowledge_base()
     matching_alarms = []
@@ -67,22 +105,32 @@ def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> Lis
                     matching_alarms.append(alarm)
             else:
                 matching_alarms.append(alarm)
-    
-    return matching_alarms
-model  = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    temperature=0,
-    max_tokens=None,
-    reasoning_format="parsed",
-    timeout=None,
-    max_retries=2,
-    api_key=os.getenv("GROQ_API_KEY")
-)
-if __name__ == "__main__":
+    combined_alarm_data = combine_data(matching_alarms)
+    return combined_alarm_data
 
-    agent = create_agent(model, tools=[search_alarms_by_name], response_format= ToolStrategy(OutputSchema)
-                         )
-    result = agent.invoke({
-        "messages": [{"role": "user", "content": "Alarm name: 'APNEA' and urgency: 'Low'. Provide the canonical alarm name, analysis message, remedy message, and comments."}]
-    })
-    print("Response:\n" ,result["structured_response"])
+
+# model = ChatGroq(
+#         model="llama-3.3-70b-versatile",
+#         temperature=0.3,
+#         max_tokens=None,
+#         timeout=None,
+#         max_retries=2,
+#         api_key=os.getenv("GROQ_API_KEY")
+#     )
+
+if __name__ == "__main__":
+    alarm_name_input = input("Enter alarm name: ")
+    urgency_input = input("Enter urgency (optional, press Enter to skip): ").strip()
+    
+    urgency_filter = urgency_input if urgency_input else None
+    
+    results = search_alarms_by_name(alarm_name_input, urgency_filter)
+    
+    print(json.dumps(results, indent=2))
+    print(f"\nFound {len(results.get("low_urgency")) + len(results.get("medium_urgency")) + len(results.get("high_urgency")) + len(results.get("no_urgency"))} matching alarm(s):\n")
+    # agent = create_agent(model, tools=[search_alarms_by_name], response_format= ToolStrategy(OutputSchema)
+    #                      )
+    # result = agent.invoke({
+    #     "messages": [{"role": "user", "content": "Alarm name: 'APNEA' and urgency: 'Low'. Provide the canonical alarm name, analysis message, remedy message, and comments."}]
+    # })
+    # print("Response:\n" ,result["structured_response"])
