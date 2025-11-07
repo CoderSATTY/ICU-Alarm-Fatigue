@@ -270,21 +270,21 @@
         "comments": "Ventilator truncates current breath unless already in exhalation. Possible dependent alarms: ↓VTE MAND,  .        , . f ↓VE TOT  ↑ TOT"
       },
       {
-        "baseMessage": "3PPEAK",
+        "baseMessage": "↓PPEAK",
         "urgency": "Low",
         "analysisMessage": "Last 2 breaths, pressure ≤ set limit.",
         "remedyMessage": "Check for leaks.",
         "comments": "Peak inspiratory pressure ≤ set limit. (Available only when Vent Type is NIV or during INVASIVE ventilation when Mandatory Type is VC+.)"
       },
       {
-        "baseMessage": "3PPEAK",
+        "baseMessage": "↓PPEAK",
         "urgency": "Medium",
         "analysisMessage": "Last 4 breaths, pressure ≤ set limit.",
         "remedyMessage": "Check for leaks.",
         "comments": "Peak inspiratory pressure ≤ set limit. (Available only when Vent Type is NIV or during INVASIVE ventilation when Mandatory Type is VC+.)"
       },
       {
-        "baseMessage": "3PPEAK",
+        "baseMessage": "↓PPEAK",
         "urgency": "High",
         "analysisMessage": "Last 10 or more breaths, pressure ≤ set limit.",
         "remedyMessage": "Check for leaks.",

@@ -71,10 +71,17 @@ def combine_data(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     if no_urgency_alarms:
         combined_alarms["no_urgency"] = no_urgency_alarms
+    else:
+        combined_alarms["no_urgency"] = []
 
     return combined_alarms
 
-
+def low_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return alarms['low_urgency']
+def medium_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return alarms['medium_urgency']
+def high_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return alarms['high_urgency']
 
 # @tool("map_alarms", args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> List[Dict[str, Any]]:
@@ -106,6 +113,6 @@ if __name__ == "__main__":
     urgency_filter = urgency_input if urgency_input else None
     
     results = search_alarms_by_name(alarm_name_input, urgency_filter)
-    
+    # print("Low_urgency:", results['low_urgency'])
     print(json.dumps(results, indent=2))
     print(f"\nFound {len(results.get("low_urgency")) + len(results.get("medium_urgency")) + len(results.get("high_urgency")) + len(results.get("no_urgency"))} matching alarm(s):\n")
