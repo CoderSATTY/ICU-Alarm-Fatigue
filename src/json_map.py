@@ -76,12 +76,40 @@ def combine_data(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     return combined_alarms
 
-def low_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return alarms['low_urgency']
-def medium_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return alarms['medium_urgency']
-def high_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return alarms['high_urgency']
+# def low_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+#     return alarms['low_urgency']
+# def medium_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+#     return alarms['medium_urgency']
+# def high_urgency(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+#     return alarms['high_urgency']
+
+def extract_summaries(results_list, urgency_levels):
+    """
+    Filters a list of alarm dictionaries for specific urgency levels
+    and returns a single, formatted string of their combined_summaries.
+    """
+    if not results_list:
+        return "Please search for an alarm first."
+        
+    summaries = []
+    for item in results_list:
+        if item.get("urgency") in urgency_levels:
+            summaries.append(item.get("combined_summary", "No summary found."))
+    
+    if not summaries:
+        return f"No alarms found for urgency level(s): {', '.join(urgency_levels)}"
+
+    return "\n\n---\n\n".join(summaries)
+
+
+def low_urgency(search_results):
+    return extract_summaries(search_results, ["low_urgency"])
+
+def medium_urgency(search_results):
+    return extract_summaries(search_results, ["medium_urgency"])
+
+def high_urgency(search_results):
+    return extract_summaries(search_results, ["high_urgency"])
 
 # @tool("map_alarms", args_schema=InputSchema, description="Search for ICU alarms by name and optional urgency.")
 def search_alarms_by_name(alarm_name: str, urgency: Optional[str] = None) -> List[Dict[str, Any]]:
