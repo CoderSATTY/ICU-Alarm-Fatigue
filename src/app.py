@@ -3,11 +3,42 @@ from json_map import low_urgency, medium_urgency, high_urgency
 from agentic_mapping import generate_final_output
 
 custom_css = """
-.gradio-container { font-size: 24px; }
-#summary_output { font-size: 29px; line-height: 1.6; }
+/* Global font size */
+body, .gradio-container {
+    font-size: 20px !important;
+}
+
+/* Markdown title and descriptions */
+.gr-markdown {
+    font-size: 22px !important;
+    line-height: 1.6 !important;
+}
+
+#summary_output .prose, 
+#summary_output .prose * {
+    font-size: 10px !important;
+    line-height: 1.8 !important;
+}
+
+/* JSON output */
+.gr-json {
+    font-size: 18px !important;
+}
+
+/* Buttons */
+button {
+    font-size: 20px !important;
+    padding: 8px 14px !important;
+}
+
+/* Text input font size */
+input, textarea {
+    font-size: 20px !important;
+}
 """
 
-with gr.Blocks(css=custom_css,) as demo:
+
+with gr.Blocks(css=custom_css) as demo:
     gr.Markdown("# Alarm Monitor and Agent Summarizer")
     
     gr.Markdown("### 1. Search for Alarms")
@@ -15,19 +46,19 @@ with gr.Blocks(css=custom_css,) as demo:
         alarm_name_input = gr.Textbox(label="Alarm Name")
         urgency_input = gr.Textbox(label="Urgency (optional)")
     
-    search_output = gr.JSON(
-            label="Matching Alarms (Raw JSON)",   
-            # visible=False
-        )
     search_button = gr.Button("Search")
 
+    search_output = gr.JSON(
+        label="Matching Alarms (Raw JSON)", 
+        # visible=False
+    )
 
     search_button.click(
         fn=generate_final_output,
         inputs=[alarm_name_input, urgency_input],
         outputs=search_output,
-        show_progress="full",
-        scroll_to_output=True
+        scroll_to_output=True 
+
     )
     
     gr.Markdown("---")
