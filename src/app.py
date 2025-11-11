@@ -16,7 +16,7 @@ body, .gradio-container {
 
 #summary_output .prose, 
 #summary_output .prose * {
-    font-size: 10px !important;
+    font-size: 30px !important;
     line-height: 1.8 !important;
 }
 

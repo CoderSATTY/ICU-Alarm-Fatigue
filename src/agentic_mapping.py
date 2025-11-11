@@ -73,7 +73,7 @@ def repair_json_string(json_text):
             return None
 
 
-def process_urgency_group(urgency: str, alarms: list) -> dict:
+def process_urgency_group(urgency: str, alarms: list, alarm_name: str) -> dict:
     agent = Agent(
         role="ICU Clinical Educator",
         goal="Translate technical alarm data into clear, actionable guidance for nurses.",
@@ -83,7 +83,7 @@ def process_urgency_group(urgency: str, alarms: list) -> dict:
     
     task = Task(
         description=f"""
-        You are reviewing {urgency} level DEVICE ALERT alarms for a ventilator. Your audience is ICU nurses who need to understand what's happening and what to do.
+        You are reviewing {urgency} alarms for a ventilator. Your audience is ICU nurses who need to understand what's happening and what to do.
 
         CRITICAL JSON FORMATTING REQUIREMENT:
         You MUST output VALID JSON. This means:
@@ -96,7 +96,7 @@ def process_urgency_group(urgency: str, alarms: list) -> dict:
         1. Write in clear, natural language that nurses can immediately understand
         2. Output ONLY a valid JSON object with three keys: "urgency", "alarm_name", "combined_summary"
         3. Set 'urgency' to '{urgency}'
-        4. Set 'alarm_name' to "DEVICE ALERT"
+        4. Set 'alarm_name' to '{alarm_name}'
         5. For 'combined_summary', write a natural language summary organized in THREE sections:
            - **What's Happening:** Explain the situation in plain language based on analysisMessage
            - **What To Do:** Provide clear action steps based on remedyMessage
@@ -128,16 +128,14 @@ def process_urgency_group(urgency: str, alarms: list) -> dict:
     
     try:
         response = crew.kickoff()
-        
-        # Get response text
+    
         if hasattr(response, 'raw'):
             response_text = response.raw
         elif hasattr(response, 'output'):
             response_text = response.output
         else:
             response_text = str(response)
-        
-        # Extract and parse JSON
+
         json_text = extract_json_from_response(response_text)
         result = json.loads(json_text)
         
@@ -160,7 +158,7 @@ def generate_final_output(alarm_name: str,urgency: str =None) -> list:
             print(f"\n{'='*60}")
             print(f"Processing {urgency.upper().replace('_', ' ')} alarms...")
             print(f"{'='*60}")
-            result = process_urgency_group(urgency, alarms)
+            result = process_urgency_group(urgency, alarms, alarm_name)
             if result:
                 results.append(result)
                 print(f"✓ Successfully processed {urgency}")
