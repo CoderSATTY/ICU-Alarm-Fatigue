@@ -40,11 +40,12 @@ def load_knowledge_base() -> List[Dict[str, Any]]:
     data_1 = open_json_file(JSON_FILE_1)
     alarms_1 = data_1["data"]["alarms"]
 
-    data_2 = open_json_file(JSON_FILE_2)
-    alarms_2 = data_2["data"]["alarms"]
-    combined_alarms = alarms_1 + alarms_2
+   # data_2 = open_json_file(JSON_FILE_2)
+   # alarms_2 = data_2["data"]["alarms"]
+   # combined_alarms = alarms_1 + alarms_2
 
-    return combined_alarms
+    return alarms_1
+    
 def combine_data(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     # print(alarms)
     no_urgency_alarms,  low_alarms, medium_alarms, high_alarms = [], [], [], []
@@ -84,17 +85,16 @@ def combine_data(alarms: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 #     return alarms['high_urgency']
 
 def extract_summaries(results_list, urgency_levels):
-    """
-    Filters a list of alarm dictionaries for specific urgency levels
-    and returns a single, formatted string of their combined_summaries.
-    """
     if not results_list:
         return "Please search for an alarm first."
         
     summaries = []
     for item in results_list:
         if item.get("urgency") in urgency_levels:
-            summaries.append(item.get("combined_summary", "No summary found."))
+            summary = item.get("combined_summary", "No summary found.")
+            if isinstance(summary, dict):
+                summary = summary.get("text", str(summary))
+            summaries.append(str(summary))
     
     if not summaries:
         return f"No alarms found for urgency level(s): {', '.join(urgency_levels)}"
